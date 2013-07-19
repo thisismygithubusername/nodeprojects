@@ -48,9 +48,9 @@ function CyborgHead(pagetitle){
 function createCyborgwithbody(body, title){
    var head = CyborgHead(title);
    var body = Body(body);
-   return HTMLshell.(head + body);
+   return HTMLshell(head + body);
 }
-</html>
+
     
 function dump(){
    return '<html>'+

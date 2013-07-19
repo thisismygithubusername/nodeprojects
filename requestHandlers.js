@@ -9,14 +9,12 @@ function printCall(handlerType) {
 function start(response) { 
    printCall("start"); 
    //exec("ls -lah", function (error, stdout, stderr) { 
-     // utils.writeMessage(response, stdout);
+     // utils.writeMessage(respnse, stdout);
   // });
-   var head = htmlhelper.head();
    var textbox = htmlhelper.textbox();
    var form = htmlhelper.form(textbox);
-   var body = htmlhelper.body(form);
-   var page = htmlhelper.htmlshell(head + body); 
-   htmlhelper.writehtml(response, page);
+   var page = htmlhelper.createcyborg(form, "My Pimp Page");
+   htmlhelper.writePage(response, page);
 }
 
 function upload(response) { 
@@ -26,7 +24,7 @@ function upload(response) {
 
 function girl(response) {
    printCall("girl");
-   utils.writeMessage(response, "You know you want this dick"); 
+   utils.writeMessage(response, "You know you want this"); 
 }
 
 exports.start = start; 
