@@ -9,9 +9,8 @@ function Head() {
 
 }
 function Body(internals) { 
-   return '<body>'+
-      internals 
-      + '</body>';
+   return '<body><div class="container">' 
+      + internals + '</div></body>';
 }
 
 function Form(internals) {
@@ -36,6 +35,23 @@ function WriteHtml(response, page) {
    response.end();
 }
 
+function CyborgHead(pagetitle){
+   return    '<head><title>' + pagetitle +'</title>' +
+     '<meta name="viewport" content="width=device-width">' + 
+     '<link rel="stylesheet" href="//app.divshot.com/themes/cyborg/bootstrap.css">' +
+     '<link rel="stylesheet" href="//app.divshot.com/css/bootstrap-responsive.css">'+
+     '<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>'+
+     '<script type="text/javascript" src="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js"></script>'
+     + '</head>';
+}
+
+function createCyborgwithbody(body, title){
+   var head = CyborgHead(title);
+   var body = Body(body);
+   return HTMLshell.(head + body);
+}
+</html>
+    
 function dump(){
    return '<html>'+
       '<head>'+
@@ -47,6 +63,7 @@ function dump(){
       '</body>'+
       '</html>';
 }
+
 exports.htmlshell = HTMLshell;
 exports.head = Head;
 exports.body = Body; 
@@ -54,4 +71,7 @@ exports.form = Form;
 exports.textbox = Textbox;
 exports.writePage = WritePage;
 exports.writehtml = WriteHtml; 
+exports.createcyborg = createCyborgwithbody;
+
+
 
